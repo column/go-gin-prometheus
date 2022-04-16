@@ -140,7 +140,7 @@ func NewPrometheus(subsystem string, customMetricsList ...[]*Metric) *Prometheus
 		MetricsList: metricsList,
 		MetricsPath: defaultMetricPath,
 		ReqCntURLLabelMappingFn: func(c *gin.Context) string {
-			return c.Request.URL.Path // i.e. by default do nothing, i.e. return URL as is
+			return c.FullPath() // i.e. by default do nothing, i.e. return URL as is
 		},
 	}
 
